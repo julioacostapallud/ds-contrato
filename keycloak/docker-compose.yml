@@ -15,6 +15,7 @@ services:
       KEYCLOAK_ADMIN_PASSWORD: ${KEYCLOAK_ADMIN_PASSWORD}
       
       # Configuración de Neon Database
+      # Formato requerido: jdbc:postgresql://ep-xxxxx.region.aws.neon.tech/keycloak?sslmode=require
       KC_DB: postgres
       KC_DB_URL: ${NEON_DATABASE_URL}
       KC_DB_USERNAME: ${NEON_USER}
