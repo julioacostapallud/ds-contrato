@@ -4,9 +4,11 @@
 
 1. **Ir a [Neon Console](https://console.neon.tech/)**
 2. **Crear nuevo proyecto**:
-   - Nombre: `ds-contrato-keycloak` (o el que prefieras)
-   - Database: `keycloak`
-   - Región: Elegir la más cercana
+   - Nombre: `keycloak` (como en tu configuración actual)
+   - Database: Se crea automáticamente
+   - Región: `AWS South America East 1 (São Paulo)` (recomendado)
+   - **PostgreSQL versión**: `15` (compatible con Keycloak 23.0.6)
+   - **Neon Auth**: OFF (Keycloak manejará la autenticación)
 
 3. **Obtener credenciales**:
    ```bash
