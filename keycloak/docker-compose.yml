@@ -1,25 +1,14 @@
-# Configuración para despliegue en la nube con Neon DB
+# Configuración simplificada para construcción local
 services:
   keycloak:
-    build: .  # Usa Dockerfile personalizado que incluye realm-config
+    build: .
+    env_file:
+      - .env
     environment:
-      # Configuración del host (configurar según tu plataforma cloud)
-      KC_HOSTNAME: ${KC_HOSTNAME}
+      # Variables que se sobrescriben en runtime
       KC_HOSTNAME_STRICT_BACKCHANNEL: false
-      KC_HTTP_ENABLED: ${KC_HTTP_ENABLED:-true}
       KC_HOSTNAME_STRICT_HTTPS: false
       KC_HEALTH_ENABLED: true
-      
-      # Admin credentials
-      KEYCLOAK_ADMIN: ${KEYCLOAK_ADMIN}
-      KEYCLOAK_ADMIN_PASSWORD: ${KEYCLOAK_ADMIN_PASSWORD}
-      
-      # Configuración de Neon Database (formato correcto para Keycloak)
-      # Formato requerido: jdbc:postgresql://ep-xxxxx.region.aws.neon.tech/neondb?sslmode=require
-      KC_DB: postgres
-      KC_DB_URL: ${KC_DB_URL}
-      KC_DB_USERNAME: ${KC_DB_USERNAME}
-      KC_DB_PASSWORD: ${KC_DB_PASSWORD}
+      KC_OPTIMIZED: true
     ports:
-      - "${PORT:-8080}:8080"
-    restart: always
+      - "8080:8080"
